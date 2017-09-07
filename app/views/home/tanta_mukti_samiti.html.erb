@@ -2,7 +2,7 @@
 <%= render 'home/sidebar' %>
 
 	<div class="col-xs-10">
-	<h2 align="center"">तंटा मुक्‍ती समिती</h2>
+	<h3 align="center"">तंटा मुक्‍ती समिती</h3>
 	<% if user_signed_in? &&  current_user.user_type == "Super_admin" %>
 	<div class="row">
 		<% if @summary_exist != nil %>
@@ -19,7 +19,7 @@
 	</div>
 	<% else %>
 	<% if @summary_exist != nil %>
-	<h4 align="center" class="margin-bottom2">(<%= @summary_exist.Tantamukti_summary %>)</h4>
+	<h4 align="center" class="margin-bottom2"><%= simple_format(@summary_exist.Tantamukti_summary) %></h4>
 	<% end %>
 	<% end %>
 	<hr>

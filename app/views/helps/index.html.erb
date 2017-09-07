@@ -19,7 +19,7 @@
 	</div>
 	<% else %>
 	<% if @summary_exist != nil %>
-	<h4 align="center" class="margin-bottom2">(<%= @summary_exist.help_summary %>)</h4>
+	<h4 align="center" class="margin-bottom2">(<%= simple_format(@summary_exist.help_summary) %>)</h4>
 	<% end %>
 	<% end %>
 
@@ -67,6 +67,8 @@
 					<p><b>मोबाइल नंबर :</b><%= a_helper.helper_phone %></p>
 					<p><b>ईमेल: </b><%= a_helper.helper_email %></p>
 					<p><b>पत्ता :</b><%= a_helper.helper_address %></p>
+					<p><b><%= link_to "Delete", help_path(a_helper),method: :delete,class: "btn btn-warning btn-xs btn-responsive" %></b></p>
+
 					<hr>
 					<% count = count + 1 %>
 				<% end %>

@@ -19,7 +19,7 @@
 	</div>
 	<% else %>
 	<% if @summary_exist != nil %>
-	<h4 align="center" class="margin-bottom2">(<%= @summary_exist.recruitment_summary %>)</h4>
+	<h4 align="center" class="margin-bottom2"><%= simple_format(@summary_exist.recruitment_summary) %></h4>
 	<% end %>
 	<% end %>
 		<% if user_signed_in? %>
@@ -48,7 +48,7 @@
 						</td>
 						<td>
 							<p align="left" class="margin-left"><b><%= recruitment.title %></b></p>
-							<p align="left" class="margin-left"><%= recruitment.description %></p>
+							<p align="left" class="margin-left"><%= simple_format(recruitment.description) %></p>
 							<p align="left" class="margin-left">
 								<% if recruitment.attachment? %>
 									<%= link_to "#{truncate(File.basename(recruitment.attachment.path),length: 25)}",:action => 'download_file_recruitment', :controller=>"recruitments", :id => recruitment.id,target: :_blank %>

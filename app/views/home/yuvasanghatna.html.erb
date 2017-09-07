@@ -18,7 +18,7 @@
 	</div>
 	<% else %>
 	<% if @summary_exist != nil %>
-	<h4 align="center" class="margin-bottom2">(<%= @summary_exist.Yuva_sanghatna_summary %>)</h4>
+	<h4 align="center" class="margin-bottom2"><%= simple_format(@summary_exist.Yuva_sanghatna_summary) %></h4>
 	<% end %>
 	<% end %> 
 	<hr>
@@ -57,8 +57,8 @@
 							<p align="left" class="margin-left"><b>पदनाम :</b><%= user.post %></p>
 							<p align="left" class="margin-left"><b>कालावधी :</b><%= user.tenure %></p>
 							<p align="left" class="margin-left"><b>फोन नंबर :</b><%= user.phone %></p>
-							<p align="left" class="margin-left"><b>पत्ता :</b><%= user.address %></p>
-							<p align="left" class="margin-left"><b>स्वतः विषयी :</b><%= user.bio %></p>
+							<p align="left" class="margin-left"><b>पत्ता :</b><%= simple_format(user.address) %></p>
+							<p align="left" class="margin-left"><b>स्वतः विषयी :</b><%= simple_format(user.bio) %></p>
 						</td>
 						</tr>
 						</tbody>

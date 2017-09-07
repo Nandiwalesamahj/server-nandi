@@ -19,7 +19,7 @@
 	</div>
 	<% else %>
 	<% if @summary_exist != nil %>
-	<h4 align="center" class="margin-bottom2">(<%= @summary_exist.Rajya_sanghatna_summary %>)</h4>
+	<h4 align="center" class="margin-bottom2"><%= simple_format(@summary_exist.Rajya_sanghatna_summary) %></h4>
 	<% end %>
 	<% end %> 
 	<hr>
@@ -58,7 +58,7 @@
 						<p align="left" class="margin-left"><b>कालावधी :</b><%= member.tenure %></p>
 						<p align="left" class="margin-left"><b>फोन नंबर :</b><%= member.phone %></p>
 						<p align="left" class="margin-left"><b>पत्ता :</b><%= member.address %></p>
-						<p align="left" class="margin-left"><b>स्वतः विषयी :</b><%= member.bio %></p>
+						<p align="left" class="margin-left"><b>स्वतः विषयी :</b><%= simple_format(member.bio) %></p>
 					</td>
 					</tr>
 				</tbody>

@@ -19,7 +19,7 @@
 			</div>
 			<% else %>
 			<% if @summary_exist != nil %>
-			<h4 align="center" class="margin-bottom2">(<%= @summary_exist.pratikriya_summary %>)</h4>
+			<h4 align="center" class="margin-bottom2">(<%= simple_format(@summary_exist.pratikriya_summary) %>)</h4>
 			<% end %>
 			<% end %>
 		<hr>
@@ -32,7 +32,7 @@
 								<h5><%= feedback.title %></h5>
 							</div>
 							<div class="panel-body">
-								<p><%= feedback.description %></p>
+								<p><%= simple_format(feedback.description) %></p>
 								<p><b>Posted by :</b><%= feedback.user_name %></p>
 							</div>
 							<% if user_signed_in? && feedback.user_id == current_user.id %>

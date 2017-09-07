@@ -19,7 +19,7 @@
 			</div>
 		<% else %>
 			<% if @summary_exist != nil %>
-				<h4 align="center" class="margin-bottom2">(<%= @summary_exist.Vadhuvar_summary %>)</h4>
+				<h4 align="center" class="margin-bottom2"><%= simple_form(@summary_exist.Vadhuvar_summary) %></h4>
 			<% end %>
 		<% end %>
 		<hr>

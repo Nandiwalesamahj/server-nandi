@@ -19,7 +19,7 @@
 	</div>
 	<% else %>
 	<% if @summary_exist != nil %>
-	<h4 align="center" class="margin-bottom2">(<%= @summary_exist.shaskiyayojana_summary %>)</h4>
+	<h4 align="center" class="margin-bottom2">(<%= simple_format(@summary_exist.shaskiyayojana_summary) %>)</h4>
 	<% end %>
 	<% end %>
 	<% if user_signed_in? && (current_user.user_type == "Super_admin") %>
@@ -46,7 +46,7 @@
 							<td align="center"><%= count %></td>
 							<td>
 								<p align="left" class="margin-left"><b><%= shaskiyayojana.title %></b></p>
-								<p align="left" class="margin-left"><%= shaskiyayojana.description %></p>
+								<p align="left" class="margin-left"><%= simple_format(shaskiyayojana.description) %></p>
 								<p align="left" class="margin-left">
 									<% if shaskiyayojana.attachment? %>
 										<%= link_to "#{truncate(File.basename(shaskiyayojana.attachment.path),length: 25)}", :action => 'download_file_shaskiyayojana', :controller=>"shaskiyayojanas", :id => shaskiyayojana.id,:target => "_blank" %>

@@ -19,7 +19,7 @@
 			</div>
 			<% else %>
 			<% if @summary_exist != nil %>
-			<h4 align="center" class="margin-bottom2">(<%= @summary_exist.Sanghatna_activity_summary %>)</h4>
+			<h4 align="center" class="margin-bottom2"><%= simple_format(@summary_exist.Sanghatna_activity_summary) %></h4>
 			<% end %>
 			<% end %>
 		<% if user_signed_in? && current_user.user_type == "Super_admin" %>
@@ -57,7 +57,7 @@
 							<%= sanghatnaactivity.event_date %>
 						<% end %></p>
 						<p align="left" class="margin-left"><b>वर्णन :</b> <% if sanghatnaactivity.description? %>
-						<%= sanghatnaactivity.description %>
+						<%= simple_format(sanghatnaactivity.description) %>
 						<% end %></p>
 						<p align="left" class="margin-left">
 						<% if sanghatnaactivity.attachment? %>

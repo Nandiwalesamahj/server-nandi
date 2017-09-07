@@ -19,7 +19,7 @@
     </div>
     <% else %>
     <% if @summary_exist != nil %>
-    <h4 align="center" class="margin-bottom2">(<%= @summary_exist.sandarbhsuchi_summary %>)</h4>
+    <h4 align="center" class="margin-bottom2"><%= simple_format(@summary_exist.sandarbhsuchi_summary) %></h4>
     <% end %>
     <% end %>
         <% if user_signed_in? && current_user.user_type == "Super_admin" %>
@@ -48,7 +48,7 @@
                         </td>    
                         <td>
                             <p align="left" class="margin-left"><b><%= sandarbhsuchi.title %></b></p>
-                            <p align="left" class="margin-left"><%= sandarbhsuchi.description %></p>
+                            <p align="left" class="margin-left"><%= simple_format(sandarbhsuchi.description) %></p>
                             <p align="left" class="margin-left">
                                 <%if sandarbhsuchi.link? %>
                                     <a href=<%= sandarbhsuchi.link %>> link </a>

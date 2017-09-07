@@ -26,7 +26,7 @@
 		<%= f.input :middle_name, label: "मधले नाव" %>
 		<%= f.input :last_name, label: "आडनाव" %>
 		<%= f.input :gender, collection: [:स्त्री, :पुरूष],label: "लिंग ( पुरूष / स्त्री )"%>
-		<%= f.input :birthdate, label: "जन्म तारीख" , hint: 'DD/MM/YYYY',input_html: { maxlength: 10 }%>
+		<%= f.input :birthdate, label: "जन्म तारीख" , :start_year => Date.current.year, :end_year => 1940 %>
 		<%= f.input :post, label: "पदनाम" %>
 		<%= f.input :tenure, label: "कालावधी" %>
 		<%= f.input :phone, label: "फोन नंबर" %>

@@ -1,7 +1,7 @@
 <div class="row">
 <%= render 'home/sidebar' %>
 
-	<div class="col-xs-10">
+<div class="col-xs-10">
 <h2 align="center"><strong>समाजाविषयी</strong></h2>	
 <% if user_signed_in? &&  current_user.user_type == "Super_admin" %>
 	<div class="row">
@@ -19,7 +19,7 @@
 	</div>
 	<% else %>
 	<% if @summary_exist != nil %>
-	<h4 align="center" class="margin-bottom2">(<%= @summary_exist.aboutsamaj_summary %>)</h4>
+	<h4 align="center" class="margin-bottom2"><%= simple_format(@summary_exist.aboutsamaj_summary) %></h4>
 	<% end %>
 	<% end %>
 	<% if user_signed_in? && (current_user.user_type == "Super_admin") %>
@@ -46,8 +46,8 @@
 							<td align="center"><%= count %></td>
 							<td>
 								<p align="left" class="margin-left"><b><%= about_samaj.title %></b></p>
-								<p align="left" class="margin-left"><%= about_samaj.description %></p>
-								<p align="left" class="margin-left">
+							 	<p align="left" class="margin-left"><%= simple_format(about_samaj.description) %></p>
+							<p align="left" class="margin-left">
 									<% if user_signed_in? && (current_user.user_type == "Super_admin") %>
 										<%= link_to "Edit", edit_aboutsamaj_path(about_samaj) , class: "btn btn-warning btn-sm btn-responsive" %> 
 										<%= link_to "Delete", aboutsamaj_path(about_samaj),method: :delete ,class: "btn btn-danger btn-sm btn-responsive"%>
