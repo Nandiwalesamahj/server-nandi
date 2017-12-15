@@ -78,6 +78,7 @@
 		<% else %>
 		<h3 align="center">धार्मिक ठिकाणे डेटाबेसमध्ये जोडली नाहीत, ठिकाणे जोडण्यासाठी प्रशासनाशी संपर्क साधा.</h3>
 	<% end %>
+<%= will_paginate @dharmik_places, :renderer =>  BootstrapPagination::Rails, :page_links => false, previous_label: "<< नवीन", next_label: "जुने >>" %>
 	</div>
 	<div class="col-xs-4">
 	<div class="panel panel-default">
@@ -85,6 +86,9 @@
 			<h3>जाहिरात</h3>
 		</div>
 		<div class="panel-body scrollable">
+		<div class="advertisement-box">
+                               </div>
+
 			<% if @ads.size > 0 %>
 				<% for ad in @ads %>
 					<div class="advertisement-box">
@@ -103,4 +107,4 @@
 
 </div>
 </div>
-</div>
+	</div>

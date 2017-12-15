@@ -13,9 +13,9 @@
 			<h2 align="center">
 			<%= @manogat.user_name %>
 			</h2>
-			<pre align="center">
-			<b><%= @manogat.description %></b>
-			</pre>
+			<p>
+			<b><%= simple_format(@manogat.description) %></b>
+			</p>
 			<p>
 			<% if @manogat.attachment? %>
 			<%= link_to "#{truncate(File.basename(@manogat.attachment.path),length: 25)}","#",target: :_blank %>
@@ -63,9 +63,12 @@
 
 			</div>
 		</div>
+
+
 		
 	</div>
 </div>
+
 <div class="col-xs-12">
 	 <footer class="row footer-nandi">
 	 		<div class="row">
@@ -157,5 +160,8 @@
             </a></div>
 
             </div>
+	<br>
+	<p style="color:white" >&copy;  nandiwalesamaj.com 2017-2018</p>
+        <p style="color:white" > Developed and Maintained by: "Shawn P. Gajlekar" and "Tejas S. Pawar" </p>
     </footer>
 </div>

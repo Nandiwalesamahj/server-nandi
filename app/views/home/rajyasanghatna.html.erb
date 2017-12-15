@@ -1,3 +1,4 @@
+
 <div class="row">
 <%= render 'home/sidebar' %>
 
@@ -69,6 +70,7 @@
 		<% else %>
 			<h3 align="center">राज्य संघटनेचे सदस्य अद्याप निवडले गेले नाहीत, येथे सदस्य जोडण्यासाठी आपल्या प्रशासकाशी संपर्क साधा!</h3>
 		<% end %>
+	<%= will_paginate @r_members, :renderer =>  BootstrapPagination::Rails, :page_links => false, previous_label: "<< नवीन", next_label: "जुने >>" %>
 	</div>
 	<div class="col-xs-4">
 	<div class="panel panel-default">
@@ -76,6 +78,9 @@
 			<h3>जाहिरात</h3>
 		</div>
 			<div class="panel-body scrollable">
+			<div class="advertisement-box">
+			    
+			</div>
 			<% if @ads.size > 0 %>
 				<% for ad in @ads %>
 					<div class="advertisement-box">

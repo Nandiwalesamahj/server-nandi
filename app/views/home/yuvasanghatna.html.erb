@@ -18,7 +18,7 @@
 	</div>
 	<% else %>
 	<% if @summary_exist != nil %>
-	<h4 align="center" class="margin-bottom2"><%= simple_format(@summary_exist.Yuva_sanghatna_summary) %></h4>
+	<h4 class="margin-bottom2"><%= simple_format(@summary_exist.Yuva_sanghatna_summary) %></h4>
 	<% end %>
 	<% end %> 
 	<hr>
@@ -69,13 +69,17 @@
 		<% else %>
 			<h3 align="center">युवा संघटना मेमबर्स डेटाबेसमध्ये नाहीत, प्रशासकाशी संपर्क साधा</h3>
 		<% end %>
-		</div>
+<%= will_paginate @r_members, :renderer =>  BootstrapPagination::Rails, :page_links => false, previous_label: "<< नवीन", next_label: "जुने >>" %>		
+</div>
 		<div class="col-xs-4">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h3>जाहिरात</h3>
 				</div>
 					<div class="panel-body scrollable">
+					<div class="advertisement-box">
+					  
+					</div>
 			<% if @ads.size > 0 %>
 				<% for ad in @ads %>
 					<div class="advertisement-box">

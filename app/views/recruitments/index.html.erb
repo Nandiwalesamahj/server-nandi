@@ -28,11 +28,11 @@
 		<hr>
 		<div class="row">
 		<div class="col-xs-8">
- 		<% if @recruitments.size > 0 %>
- 			<% count = 1 %>
- 			<div class="table-responsive">
-	     	<table class="table2">
-	     	<col width="50">
+		<% if @recruitments.size > 0 %>
+			<% count = 1 %>
+		<div class="table-responsive">
+   <table class="table2">
+    <col width="50">
 			<col width="700">
 			<thead>
 				<tr>
@@ -66,6 +66,7 @@
 				<% count = count + 1 %>
 			<% end %>
 			</table>
+<%= will_paginate @posts, :renderer =>  BootstrapPagination::Rails, :page_links => false, previous_label: "<< नवीन", next_label: "जुने >>" %>
 			</div>
 		<% else %>
 			<h3 align="center">कोणतेही कर्मचारी भरती बददल महिती आले नाहीत </h3>
@@ -78,6 +79,9 @@
 				<h3>जाहिरात</h3>
 			</div>
 				<div class="panel-body scrollable">
+				<div class="advertisement-box">
+				  
+				</div>
 			<% if @ads.size > 0 %>
 				<% for ad in @ads %>
 					<div class="advertisement-box">

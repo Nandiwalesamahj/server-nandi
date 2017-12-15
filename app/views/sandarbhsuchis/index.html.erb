@@ -71,6 +71,8 @@
                     <% count = count + 1 %>
                     <% end %>
                 </table>
+	<%= will_paginate @sandarbhsuchis, :renderer =>  BootstrapPagination::Rails, :page_links => false, previous_label: "<< नवीन", next_label: "जुने >>" %>
+                                       
                 </div>
             <% else %>
                 <h3 align="center">संदर्भ सूची </h3>
@@ -82,6 +84,9 @@
                 <h3>जाहिरात</h3>
               </div>
                 <div class="panel-body scrollable">
+		<div class="advertisement-box">
+		  
+		</div>
             <% if @ads.size > 0 %>
                 <% for ad in @ads %>
                     <div class="advertisement-box">

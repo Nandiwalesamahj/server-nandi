@@ -19,7 +19,7 @@
 	</div>
 	<% else %>
 	<% if @summary_exist != nil %>
-	<h4 align="center" class="margin-bottom2">(<%= simple_format(summary_exist.samajiksanstha_summary) %>)</h4>
+	<h4 class="margin-bottom2">(<%= simple_format(summary_exist.samajiksanstha_summary) %>)</h4>
 	<% end %>
 	<% end %>
 	<% if user_signed_in? && (current_user.user_type == "Super_admin") %>
@@ -47,8 +47,8 @@
 							<td align="center"><%= count %></td>
 							
 							<td>
-								<% if samajiksanstha.title %><p align="left" class="margin-left"><b> <%= samajiksanstha.title %></b></p><% end %>
-								<% if samajiksanstha.description %><p align="left" class="margin-left"><%= simple_format(samajiksanstha.description) %></p><% end %>
+								<p align="left" class="margin-left"><% if samajiksanstha.title %><b> <%= samajiksanstha.title %></b><% end %>
+								<% if samajiksanstha.description %><%= simple_format(samajiksanstha.description) %><% end %> </p>
 								<p align="left" class="margin-left">
 									<% if samajiksanstha.attachment? %>
 										<%= link_to "#{truncate(File.basename(samajiksanstha.attachment.path),length: 25)}", :action => 'download_file_samajiksanstha', :controller=>"samajiksansthas", :id => samajiksanstha.id %>
@@ -78,6 +78,9 @@
 					<h3>जाहिरात</h3>
 				</div>
 				<div class="panel-body scrollable">
+				 <div class="advertisement-box">
+				  
+				</div>
 			<% if @ads.size > 0 %>
 				<% for ad in @ads %>
 					<div class="advertisement-box">

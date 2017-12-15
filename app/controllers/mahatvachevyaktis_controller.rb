@@ -25,7 +25,9 @@ class MahatvachevyaktisController < ApplicationController
 	def samaj_bandhav
 		@importantpeople = Mahatvachevyakti.where(:importance_type => "समाज_बांधव").order("created_at DESC")
 	end
-
+	def shaskiya_karmachari
+		@importantpeople = Mahatvachevyakti.where(:importance_type => "शासकीय_कर्मचारी").order("created_at DESC")
+	end
 
 	def new
 		@person = Mahatvachevyakti.new
@@ -52,7 +54,7 @@ class MahatvachevyaktisController < ApplicationController
 	def destroy
 		@person = Mahatvachevyakti.find(params[:id])
 		if user_signed_in?
-			if @person.detroy
+			if @person.destroy
 				redirect_to mahatvachevyakti_home_path
 			end
 		end

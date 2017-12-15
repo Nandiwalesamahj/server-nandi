@@ -30,6 +30,12 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def admin_edit
+	if current_user.user_type == "Super_admin"
+		@user = User.find(params[:passed_user])
+	end
+	end
+
 	def select_yuva_sanghatna
 		@users = User.all
 		@users = @users.search_users(params[:search_param])

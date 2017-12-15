@@ -1,4 +1,4 @@
-<div class="row">
+ <div class="row">
 <%= render 'home/sidebar' %>
 <h2 align="center" class="margin-bottom2">All Registered Users</h2>
 	<% if user_signed_in? && current_user.user_type == "Super_admin" %>	
@@ -16,6 +16,9 @@
 					<tr>
 						<th>नाव</th>
 						<th>फोन नंबर</th>
+						<th>पदनाम</th>
+						<th>अधिकारी प्रकार</th>
+						<th>गाव</th>
 						<th>E-Mail</th>
 						<th>फोटो काडा</th>
 						<th>Delete User</th>
@@ -41,6 +44,35 @@
 									<%= user.phone %></p>
 								<% end %>
 							</td>
+							<td><p>
+
+								<% if user.post != nil %>
+
+									<%= user.post %>
+
+								<% end %>
+
+							</p></td>
+
+							<td><p>
+
+								<% if user.adhikari_type != nil %>
+
+									<%= user.adhikari_type.humanize %>
+
+								<% end %>
+
+							</p></td>
+
+							<td><p>
+
+								<% if user.work_at_district != nil %>
+
+									<%= user.work_at_district.humanize %>
+
+								<% end %>
+
+							</p></td>
 							<td><p><%= link_to user.email, edit_user_path(user) %></p>
 							</td>
 							<td><p><%= simple_form_for([user]) do |f| %>
@@ -65,6 +97,7 @@
    		<p>You are not allowed here, go back to your home page. <%= link_to "click here", homepage_path(current_user) %> </p>
 	<% end %>
 </div>
+
 
 
 

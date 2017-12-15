@@ -20,10 +20,17 @@
 				<% for user in @users %>
 						<tr>
 							<%= simple_form_for user do |f| %>
+							<% if user != nil && user.first_name != nil && user.middle_name != nil && user.last_name != nil %>
 							<td><%= user.full_name %></td>
 							<td><%= f.input :zilla_approval, collection: [:Yes, :No], as: :radio_buttons %>
 							<%= f.submit "Approve" %></td>
 							<% end %>
+
+							<% elsif user != nil && user.first_name != nil && user.last_name != nil %>
+                       <td><%= user.first_name + " " + user.last_name %></td>
+                        <td><%= f.input :zilla_approval, collection: [:Yes, :No], as: :radio_buttons %>
+                        <%= f.submit "Approve" %></td>
+			<% end %>
 						</tr>
 				<% end %>
 				</tbody>

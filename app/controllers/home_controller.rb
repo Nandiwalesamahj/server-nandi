@@ -18,7 +18,7 @@ class HomeController < ApplicationController
 				break
 			end
 		end
-	    @r_members = User.where(:rajya_approval => "Yes").order("created_at DESC")
+	    @r_members = User.where(:rajya_approval => "Yes").order("created_at DESC").page(params[:page]).per_page(10)
 	end
 	def zilasanghatna
 		@ads = Advertise.where(:on_page => "zilla_sanghatna_page")
@@ -43,7 +43,7 @@ class HomeController < ApplicationController
 			end
 		end
 
-	    @r_members = User.where(:yuva_approval => "Yes").order("created_at DESC")
+	    @r_members = User.where(:yuva_approval => "Yes").order("created_at DESC").page(params[:page]).per_page(10)
 	end
 	def dharmik_places
 		@ads = Advertise.where(:on_page => "dharmik_places_home")
@@ -55,7 +55,7 @@ class HomeController < ApplicationController
 				break
 			end
 		end
-		@dharmik_places = Samajikplace.all.order("created_at DESC")
+		@dharmik_places = Samajikplace.all.order("created_at DESC").page(params[:page]).per_page(10)
 		@dharmik_place = Samajikplace.new
 	end
 	def sanghatnaactivities
@@ -120,7 +120,7 @@ class HomeController < ApplicationController
 				break
 			end
 		end
-		@importantpeople = Mahatvachevyakti.all.order("created_at DESC")
+		@importantpeople = Mahatvachevyakti.all.order("created_at DESC").page(params[:page]).per_page(10)
 		@importantperson = Mahatvachevyakti.new
 	end
 	def future_vision

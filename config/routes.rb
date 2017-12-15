@@ -24,7 +24,8 @@ Rails.application.routes.draw do
   resources :shaskiyayojanas
   resources :summaries
 
-
+get 'admin_edit', to: "users#admin_edit"
+get 'shaskiya_karmachari', to: "mahatvachevyaktis#shaskiya_karmachari"
 get 'pratishtit_manadal',to: "mahatvachevyaktis#pratishtit_manadal"
 get 'puraskar_prapt',to: "mahatvachevyaktis#puraskar_prapt"
 get 'samajatil_panch',to: "mahatvachevyaktis#samajatil_panch"

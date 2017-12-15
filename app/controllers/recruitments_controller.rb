@@ -11,7 +11,7 @@ class RecruitmentsController < ApplicationController
 				break
 			end
 		end
-		@recruitments = Recruitment.all.order("created_at DESC")
+		@recruitments = Recruitment.all.order("created_at DESC").page(params[:page]).per_page(10)
 	end
 	def show
 		@recruitment = Recruitment.find(params[:id])

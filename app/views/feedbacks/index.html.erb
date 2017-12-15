@@ -19,12 +19,22 @@
 			</div>
 			<% else %>
 			<% if @summary_exist != nil %>
-			<h4 align="center" class="margin-bottom2">(<%= simple_format(@summary_exist.pratikriya_summary) %>)</h4>
+			<h4 class="margin-bottom2">(<%= simple_format(@summary_exist.pratikriya_summary) %>)</h4>
 			<% end %>
 			<% end %>
 		<hr>
 		<div class="row">
 			<div class="col-xs-8">
+<% if user_signed_in? %>
+					<div class="panel panel-default">
+					<div class="panel-body">
+						<p>तुमची प्रतिक्रीया लिहा </p>
+					</div>
+					<div class="panel-footer">
+						<%= render 'form' %></div>
+					</div>
+				<% end %>
+
 				<% if @feedbacks != nil && @feedbacks.size > 0%>
 					<% for feedback in @feedbacks %>
 						<div class="panel panel-warning">
@@ -45,15 +55,8 @@
 				<% else %>
 					<h3>प्रतिक्रीया लिहा!</h3>
 				<% end %>
-				<% if user_signed_in? %>
-					<div class="panel panel-default">
-					<div class="panel-body">
-						<p>तुमची प्रतिक्रीया लिहा </p>
-					</div>
-					<div class="panel-footer">
-						<%= render 'form' %></div>
-					</div>
-				<% end %>
+	 <%= will_paginate @feedbacks, :renderer =>  BootstrapPagination::Rails, :page_links => false, previous_label: "<< नवीन", next_label: "जुने >>" %>
+			
 			</div>
 			<div class="col-xs-4">
 			<div class="panel panel-default">
@@ -61,6 +64,8 @@
 					<h3>जाहिरात</h3>
 				</div>
 					<div class="panel-body scrollable">
+					 <div class="advertisement-box">
+					 </div>
 			<% if @ads.size > 0 %>
 				<% for ad in @ads %>
 					<div class="advertisement-box">

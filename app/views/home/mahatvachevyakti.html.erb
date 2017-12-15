@@ -34,7 +34,7 @@
 	<%= link_to "व्यापारी",vyapari_path , class: "btn btn-md btn-warning btn-responsive" %>
 	<%= link_to "सेवादाते",sevadatey_path , class: "btn btn-md btn-warning btn-responsive" %>
 	<%= link_to "समाज बांधव",samaj_bandhav_path , class: "btn btn-md btn-warning btn-responsive" %>
-
+	<%= link_to "शासकीय कर्मचारी", shaskiya_karmachari_path, class: "btn btn-md btn-warning btn-responsive" %>
 		<% if  @importantpeople!= nil &&  @importantpeople.size > 0 %>
 			<div class="table-responsive">
 	    	<table class="table2">
@@ -87,5 +87,6 @@
 		<% else %>
 			<h3 align="center">समाजातील महत्‍वाच्‍या व्‍यक्‍ती डेटाबेसमध्ये आढळला नाही, त्यांना जोडण्यासाठी प्रशासनाशी संपर्क साधा.</h3>
 		<% end %>
+		<%= will_paginate @importantpeople, :renderer =>  BootstrapPagination::Rails, :page_links => false, previous_label: "<< नवीन", next_label: "जुने >>" %>
 	</div>
 </div>

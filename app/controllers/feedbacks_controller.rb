@@ -15,7 +15,7 @@ class FeedbacksController < ApplicationController
 			end
 		end
 		@feedback = Feedback.new
-		@feedbacks = Feedback.all.order("created_at DESC")
+		@feedbacks = Feedback.all.order("created_at DESC").page(params[:page]).per_page(5)
 	end
 
 	def create

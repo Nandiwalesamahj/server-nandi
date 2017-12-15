@@ -13,7 +13,7 @@ class SandarbhsuchisController < ApplicationController
         break
       end
     end
-    @sandarbhsuchis = Sandarbhsuchi.all.order("created_at DESC")
+    @sandarbhsuchis = Sandarbhsuchi.all.order("created_at DESC").page(params[:page]).per_page(10)
   end
 
 
